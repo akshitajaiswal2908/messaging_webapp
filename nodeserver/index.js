@@ -1,8 +1,11 @@
-const io = require('socket.io')(8000, {
-     cors: { 
-        origin: "http://127.0.0.1:5500",
+const PORT = process.env.PORT || 8000;
+const io = require('socket.io')(PORT, {
+    cors: { 
+        origin: "*", // allow all for now, we can make it strict later
         methods: ["GET", "POST"]
- } });
+    }
+});
+
 
 const users = {};
 
